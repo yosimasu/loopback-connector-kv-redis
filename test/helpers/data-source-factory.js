@@ -42,6 +42,14 @@ createDataSource.failing = function(options) {
   return createDataSource(settings);
 };
 
+createDataSource.json = function(options) {
+  var settings = extend({
+    packer: 'json',
+  }, options);
+
+  return createDataSource(settings);
+};
+
 beforeEach(function clearDatabase(done) {
   var ds = createDataSource();
   ds.connector.execute('FLUSHDB', function(err) {
